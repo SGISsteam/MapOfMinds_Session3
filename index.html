@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom World Map</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        body { margin: 0; padding: 0; font-family: sans-serif; }
+        #map { height: 100vh; width: 100%; }
+
+        .student-popup img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .student-popup h3 { margin: 0 0 5px 0; color: #333; }
+        .student-popup p { margin: 0; font-size: 14px; line-height: 1.4; color: #666; }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+    const map = L.map('map', {
+        minZoom: 3, 
+        maxZoom: 18,
+        maxBounds: [[-90, -180], [90, 180]],
+        maxBoundsViscosity: 1.0 
+    }).setView([38, 60], 3);
+
+        // Map tiles
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors © CARTO',
+            subdomains: 'abcd',
+            noWrap: true, 
+            bounds: [[-90, -180], [90, 180]]
+        }).addTo(map);
+
+        const students = [
+            { name: "HAYA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "haya.jpg" },
+            { name: "LULUA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "lulua.jpg"},
+            { name: "SARA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "sara.jpg" },
+            { name: "KRYPTOS", country: "GREECE", coords: [39.0742, 21.8243], image: "kryptos.jpg" },
+            { name: "MOHAMMED", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "mohammed.jpg" },
+            { name: "SAFI", country: "UZBEKISTAN", coords: [41.3775, 64.5853], image: "safi.jpg" },
+            { name: "PARIS", country: "UZBEKISTAN", coords: [41.3775, 64.5853], image: "paris.jpg" },
+            { name: "MEHMET", country: "TURKEY", coords: [38.9637, 35.2433], image: "mehmet.jpg" },
+            { name: "ARLO", country: "ENGLAND", coords: [55.3781, -3.4360], image: "arlo.jpg" },
+            { name: "ETHAN", country: "UNITED STATES", coords:[37.0902, -95.7129], image: "ethan.jpg" },
+            { name: "ARIA", country: "UNITED STATES", coords: [37.0902, -95.7129], image: "aria.jpg" },
+            { name: "YOYO", country: "CHINA", coords: [35.8617, 104.1954], image: "yoyo.jpg" },
+
+            { name: "BADRIA", country: "KUWAIT", coords: [29.3117,47.4818], image: "badria.jpg" },
+            { name: "MELIS", country: "TURKIYE", coords: [ 38.9637,35.2433], image: "melis.jpg" },
+            { name: "SAFIYA", country: "KAZAKHSTAN", coords: [48.0196,66.9237], image: "safiya.jpg" },
+            { name: "YIGIT", country: "TURKIYE", coords: [38.9637,35.2433], image: "yigit.jpg" },
+            { name: "ARSEN", country: "MONACO", coords: [43.7384,7.4246], image: "arsen.jpg" },
+            { name: "MARK", country: "LITUANIA", coords: [55.1694,23.8813], image: "mark.jpg" },
+            { name: "AIRI", country: "KAZAKHSTAN", coords: [48.0196,66.9237], image: "airi.jpg" },
+            { name: "NORAH", country: "THAILAND", coords: [15.8700,100.9925], image: "norah.jpg" },
+            { name: "ELSA", country: "CHINA", coords:  [35.8617,104.1954], image: "elsa.jpg" },
+
+            { name: "ELOIS", country: "ALBANIA", coords: [41.1533, 20.1683], image: "elois.jpg" },
+            { name: "VIKTORIA", country: "NETHERLANDS", coords: [52.1326, 5.2913], image: "viktoria.jpg" },
+            { name: "AHMED", country: "TURKEY", coords: [38.9637, 35.2433], image: "ahmed.jpg" },
+            { name: "ATLAS", country: "TURKEY", coords: [38.9637, 35.2433], image: "atlas.jpg" },
+            { name: "ALLAYAR", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "allayar.jpg" },
+            { name: "AYLIN", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "aylin.jpg" },
+            { name: "ALISHA", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "alisha.jpg" },
+            { name: "MALIK", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "malik.jpg" },
+            { name: "KHALID", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "khalid.jpg" },
+            { name: "JACKSON", country: "USA", coords: [37.0902, -95.7129], image: "jackson.jpg" }
+];
+      
+        
+        students.forEach(student => {
+            const marker = L.marker(student.coords).addTo(map);
+            
+            // Only render an image tag if student.image exists
+            const imageHtml = student.image ? `<img src="${student.image}" alt="${student.name}">` : '';
+
+            const popupContent = `
+                <div class="student-popup">
+                    ${imageHtml}
+                    <h3>${student.name}</h3>
+                    <p>Country: ${student.country}</p>
+                </div>
+            `;
+            
+            marker.bindPopup(popupContent);
+        });
+    </script>
+</body>
+</html>
