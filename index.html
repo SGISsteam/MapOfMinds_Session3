@@ -44,42 +44,69 @@
             bounds: [[-90, -180], [90, 180]]
         }).addTo(map);
 
-        const students = [
-            { name: "HAYA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "haya.jpg" },
-            { name: "LULUA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "lulua.jpg"},
-            { name: "SARA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "sara.jpg" },
-            { name: "KRYPTOS", country: "GREECE", coords: [39.0742, 21.8243], image: "kryptos.jpg" },
-            { name: "MOHAMMED", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "mohammed.jpg" },
-            { name: "SAFI", country: "UZBEKISTAN", coords: [41.3775, 64.5853], image: "safi.jpg" },
-            { name: "PARIS", country: "UZBEKISTAN", coords: [41.3775, 64.5853], image: "paris.jpg" },
-            { name: "MEHMET", country: "TURKEY", coords: [38.9637, 35.2433], image: "mehmet.jpg" },
-            { name: "ARLO", country: "ENGLAND", coords: [55.3781, -3.4360], image: "arlo.jpg" },
-            { name: "ETHAN", country: "UNITED STATES", coords:[37.0902, -95.7129], image: "ethan.jpg" },
-            { name: "ARIA", country: "UNITED STATES", coords: [37.0902, -95.7129], image: "aria.jpg" },
-            { name: "YOYO", country: "CHINA", coords: [35.8617, 104.1954], image: "yoyo.jpg" },
+const students = [
+  // SAUDI ARABIA
+  { name: "HAYA", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "haya.jpg" },
+  { name: "LULUA", country: "SAUDI ARABIA", coords: [24.0859, 45.2792], image: "lulua.jpg" },
+  { name: "SARA", country: "SAUDI ARABIA", coords: [23.6859, 44.8792], image: "sara.jpg" },
+  { name: "MOHAMMED", country: "SAUDI ARABIA", coords: [24.0859, 44.8792], image: "mohammed.jpg" },
+  { name: "MALIK", country: "SAUDI ARABIA", coords: [23.6859, 45.2792], image: "malik.JPG" },
+  { name: "KHALID", country: "SAUDI ARABIA", coords: [23.8859, 45.3792], image: "khalid.JPG" },
 
-            { name: "BADRIA", country: "KUWAIT", coords: [29.3117,47.4818], image: "badria.jpg" },
-            { name: "MELIS", country: "TURKIYE", coords: [ 38.9637,35.2433], image: "melis.jpg" },
-            { name: "SAFIYA", country: "KAZAKHSTAN", coords: [48.0196,66.9237], image: "safiya.jpg" },
-            { name: "YIGIT", country: "TURKIYE", coords: [38.9637,35.2433], image: "yigit.jpg" },
-            { name: "ARSEN", country: "MONACO", coords: [43.7384,7.4246], image: "arsen.jpg" },
-            { name: "MARK", country: "LITUANIA", coords: [55.1694,23.8813], image: "mark.jpg" },
-            { name: "AIRI", country: "KAZAKHSTAN", coords: [48.0196,66.9237], image: "airi.jpg" },
-            { name: "NORAH", country: "THAILAND", coords: [15.8700,100.9925], image: "norah.jpg" },
-            { name: "ELSA", country: "CHINA", coords:  [35.8617,104.1954], image: "elsa.jpg" },
+  // GREECE
+  { name: "KRYPTOS", country: "GREECE", coords: [39.0742, 21.8243], image: "kryptos.jpg" },
 
-            { name: "ELOIS", country: "ALBANIA", coords: [41.1533, 20.1683], image: "elois.JPG" },
-            { name: "VIKTORIA", country: "NETHERLANDS", coords: [52.1326, 5.2913], image: "viktoria.JPG" },
-            { name: "AHMED", country: "TURKEY", coords: [38.9637, 35.2433], image: "ahmed.JPG" },
-            { name: "ATLAS", country: "TURKEY", coords: [38.9637, 35.2433], image: "atlas.JPG" },
-            { name: "ALLAYAR", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "allayar.JPG" },
-            { name: "AYLIN", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "aylin.JPG" },
-            { name: "ALISHA", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "alisha.JPG" },
-            { name: "MALIK", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "malik.JPG" },
-            { name: "KHALID", country: "SAUDI ARABIA", coords: [23.8859, 45.0792], image: "khalid.JPG" },
-            { name: "JACKSON", country: "USA", coords: [37.0902, -95.7129], image: "jackson.JPG" }
+  // UZBEKISTAN
+  { name: "SAFI", country: "UZBEKISTAN", coords: [41.3775, 64.5853], image: "safi.jpg" },
+  { name: "PARIS", country: "UZBEKISTAN", coords: [41.5775, 64.7853], image: "paris.jpg" },
+
+  // TURKEY / TURKIYE
+  { name: "MEHMET", country: "TURKEY", coords: [38.9637, 35.2433], image: "mehmet.jpg" },
+  { name: "MELIS", country: "TURKIYE", coords: [39.1637, 35.4433], image: "melis.jpg" },
+  { name: "YIGIT", country: "TURKIYE", coords: [38.7637, 35.0433], image: "yigit.jpg" },
+  { name: "AHMED", country: "TURKEY", coords: [39.1637, 35.0433], image: "ahmed.JPG" },
+  { name: "ATLAS", country: "TURKEY", coords: [38.7637, 35.4433], image: "atlas.JPG" },
+
+  // ENGLAND
+  { name: "ARLO", country: "ENGLAND", coords: [55.3781, -3.4360], image: "arlo.jpg" },
+
+  // UNITED STATES / USA
+  { name: "ETHAN", country: "UNITED STATES", coords: [37.0902, -95.7129], image: "ethan.jpg" },
+  { name: "ARIA", country: "UNITED STATES", coords: [37.2902, -95.5129], image: "aria.jpg" },
+  { name: "JACKSON", country: "USA", coords: [36.8902, -95.9129], image: "jackson.JPG" },
+
+  // CHINA
+  { name: "YOYO", country: "CHINA", coords: [35.8617, 104.1954], image: "yoyo.jpg" },
+  { name: "ELSA", country: "CHINA", coords: [36.0617, 104.3954], image: "elsa.jpg" },
+
+  // KUWAIT
+  { name: "BADRIA", country: "KUWAIT", coords: [29.3117, 47.4818], image: "badria.jpg" },
+
+  // KAZAKHSTAN
+  { name: "SAFIYA", country: "KAZAKHSTAN", coords: [48.0196, 66.9237], image: "safiya.jpg" },
+  { name: "AIRI", country: "KAZAKHSTAN", coords: [48.2196, 67.1237], image: "airi.jpg" },
+  { name: "ALLAYAR", country: "KAZAKHSTAN", coords: [47.8196, 66.7237], image: "allayar.JPG" },
+  { name: "AYLIN", country: "KAZAKHSTAN", coords: [48.2196, 66.7237], image: "aylin.JPG" },
+  { name: "ALISHA", country: "KAZAKHSTAN", coords: [47.8196, 67.1237], image: "alisha.JPG" },
+  { name: "AFINA", country: "KAZAKHSTAN", coords: [46.8196, 67.1237], image: "afina.JPG" },
+
+
+  // MONACO
+  { name: "ARSEN", country: "MONACO", coords: [43.7384, 7.4246], image: "arsen.jpg" },
+
+  // LITHUANIA
+  { name: "MARK", country: "LITUANIA", coords: [55.1694, 23.8813], image: "mark.jpg" },
+
+  // THAILAND
+  { name: "NORAH", country: "THAILAND", coords: [15.8700, 100.9925], image: "norah.jpg" },
+
+  // ALBANIA
+  { name: "ELOIS", country: "ALBANIA", coords: [41.1533, 20.1683], image: "elois.JPG" },
+
+  // NETHERLANDS
+  { name: "VIKTORIA", country: "NETHERLANDS", coords: [52.1326, 5.2913], image: "viktoria.JPG" }
 ];
-      
+        
         
         students.forEach(student => {
             const marker = L.marker(student.coords).addTo(map);
